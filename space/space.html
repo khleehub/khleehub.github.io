@@ -63,7 +63,13 @@
               canvas2 = document.getElementById("canvas");
               if (canvas == null || canvas.getContext == null) return;
               ctx = canvas.getContext("2d");
-             
+
+              sx2 = (canvas2.left + canvas2.right)/2;
+              sy2 = (canvas2.top + canvas2.bottom)/2;
+              var ctx2 = canvas2.getContext("2d");
+              drawText(ctx2, "O", sx2, sy2,
+                        "30px arial", "yellow", "center", "middle");
+              
               spaceShip = new Image();
               spaceShip.src = "s4ship.png";
               setInterval(runGame, 30);
