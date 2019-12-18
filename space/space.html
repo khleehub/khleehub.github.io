@@ -10,7 +10,7 @@
      </style>
 </head>
 <body>
-     <p>운석 피하기 게임2</p>
+     <p>운석 피하기 게임 3</p>
      <canvas id="canvas" width="300" height="400" style="background:black";>
          이 브라우저는 캔버스를 지원하지 않습니다.
      </canvas><p>
@@ -54,8 +54,8 @@
          
          function init() {
              totalTime = 0;
-             sx2 = canvas2.width/2;
-             sy2 = canvas2.height/2;
+             sx2 = (canvas2.left + canvas2.right)/2;
+             sy2 = (canvas2.top + canvas2.bottom)/2;
          }
        
          window.onload = function() {
