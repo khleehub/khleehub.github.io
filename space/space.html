@@ -10,8 +10,11 @@
      </style>
 </head>
 <body>
-     <p>운석 피하기 게임</p>
+     <p>운석 피하기 게임2</p>
      <canvas id="canvas" width="300" height="400" style="background:black";>
+         이 브라우저는 캔버스를 지원하지 않습니다.
+     </canvas><p>
+     <canvas id="canvas2" width="300" height="100" style="background:black";>
          이 브라우저는 캔버스를 지원하지 않습니다.
      </canvas>
      <H1>
@@ -21,7 +24,7 @@
      <button>Right-></button>
      </H1>
 <script>
-         var canvas;
+         var canvas, canvas2;
          var ctx;
 
          // 게임의 상태
@@ -51,10 +54,13 @@
          
          function init() {
              totalTime = 0;
+             sx2 = canvas2.width/2;
+             sy2 = canvas2.height/2;
          }
        
          window.onload = function() {
               canvas = document.getElementById("canvas");
+              canvas2 = document.getElementById("canvas");
               if (canvas == null || canvas.getContext == null) return;
               ctx = canvas.getContext("2d");
              
@@ -70,16 +76,16 @@
               });
 
               if ( ('ontouchstart' in window ) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) ) {
-                   canvas.addEventListener("touchmove", function (e) {
+                   canvas2.addEventListener("touchmove", function (e) {
                          var ee = e.changedTouches[0];
-                      if ( sx < ee.clientX ) sx += 3;
-                      if ( sx > ee.clientX ) sx -= 3;
-                      if ( sy < ee.clientY ) sy += 3;
-                      if ( sy > ee.clientY ) sy -= 3;
+                      if ( sx2 < ee.clientX ) sx += 3;
+                      if ( sx2 > ee.clientX ) sx -= 3;
+                      if ( sy2 < ee.clientY ) sy += 3;
+                      if ( sy2 > ee.clientY ) sy -= 3;
                    });
               }
               else {
-                  canvas.addEventListener("mousemove", function (e) {
+                  canvas2.addEventListener("mousemove", function (e) {
                       if ( sx < e.clientX ) sx += 3;
                       if ( sx > e.clientX ) sx -= 3;
                       if ( sy < e.clientY ) sy += 3;
