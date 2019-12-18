@@ -62,18 +62,23 @@
                       if ( sy < e.clientY ) sy += 3;
                       if ( sy > e.clientY ) sy -= 3;
               });
-              canvas.addEventListener("mousemove", function (e) {
+
+              if ("createTouch" in document) {
+                   canvas.addEventListener("touchmove", function (e) {
                       if ( sx < e.clientX ) sx += 3;
                       if ( sx > e.clientX ) sx -= 3;
                       if ( sy < e.clientY ) sy += 3;
                       if ( sy > e.clientY ) sy -= 3;
-              });
-               canvas.addEventListener("touchmove", function (e) {
+                   });
+              }
+              else {
+                  canvas.addEventListener("mousemove", function (e) {
                       if ( sx < e.clientX ) sx += 3;
                       if ( sx > e.clientX ) sx -= 3;
                       if ( sy < e.clientY ) sy += 3;
                       if ( sy > e.clientY ) sy -= 3;
-              });
+                  });
+              }
          }
        
          window.onkeydown = function(e) {
