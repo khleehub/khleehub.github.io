@@ -63,12 +63,13 @@
                       if ( sy > e.clientY ) sy -= 3;
               });
 
-              if ("createTouch" in document) {
+              if ( ('ontouchstart' in window ) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) ) {
                    canvas.addEventListener("touchmove", function (e) {
-                      if ( sx < e.clientX ) sx += 3;
-                      if ( sx > e.clientX ) sx -= 3;
-                      if ( sy < e.clientY ) sy += 3;
-                      if ( sy > e.clientY ) sy -= 3;
+                         var ee = e.changedTouches[0];
+                      if ( sx < ee.clientX ) sx += 3;
+                      if ( sx > ee.clientX ) sx -= 3;
+                      if ( sy < ee.clientY ) sy += 3;
+                      if ( sy > ee.clientY ) sy -= 3;
                    });
               }
               else {
