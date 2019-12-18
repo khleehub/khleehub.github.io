@@ -9,7 +9,7 @@
          이 브라우저는 캔버스를 지원하지 않습니다.
      </canvas>
      <H1>
-     <button><-Left</button>
+     <button onclick="sg()"><-Left</button>
      <button>vDownv</button>
      <button>^^Up^^</button>
      <button>Right-></button>
@@ -78,6 +78,13 @@
               keyPressed[e.keyCode] = false;
          }
  
+         function sg() {
+              if (spaceShip.complete == false) return;
+              init();
+              startGame();
+              state = STATE_RUN;
+         }
+     
          // 게임 시작. 운석 난수로 배치하고 시간 리셋
          function startGame() {
               arMete.length = 0;
