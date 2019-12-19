@@ -77,27 +77,27 @@
               setInterval(runGame, 30);
 
               canvas.addEventListener("mousedown", function (e) {
-                      if ( sx < e.clientX ) sx += 3;
-                      if ( sx > e.clientX ) sx -= 3;
-                      if ( sy < e.clientY ) sy += 3;
-                      if ( sy > e.clientY ) sy -= 3;
+                      if ( sx < e.clientX ) sx += 15;
+                      if ( sx > e.clientX ) sx -= 15;
+                      if ( sy < e.clientY ) sy += 15;
+                      if ( sy > e.clientY ) sy -= 15;
               });
 
               if ( ('ontouchstart' in window ) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) ) {
                    canvas2.addEventListener("touchmove", function (e) {
                          var ee = e.changedTouches[0];
-                      if ( sx2 < ee.clientX ) sx += 3;
-                      if ( sx2 > ee.clientX ) sx -= 3;
-                      if ( sy2 < ee.clientY ) sy += 3;
-                      if ( sy2 > ee.clientY ) sy -= 3;
+                      if ( sx2 < ee.clientX ) sx += 15;
+                      if ( sx2 > ee.clientX ) sx -= 15;
+                      if ( sy2 < ee.clientY ) sy += 15;
+                      if ( sy2 > ee.clientY ) sy -= 15;
                    });
               }
               else {
                   canvas.addEventListener("mousemove", function (e) {
-                      if ( sx < e.clientX ) sx += 3;
-                      if ( sx > e.clientX ) sx -= 3;
-                      if ( sy < e.clientY ) sy += 3;
-                      if ( sy > e.clientY ) sy -= 3;
+                      if ( sx < e.clientX ) sx += 15;
+                      if ( sx > e.clientX ) sx -= 15;
+                      if ( sy < e.clientY ) sy += 15;
+                      if ( sy > e.clientY ) sy -= 15;
                   });
               }
          }
