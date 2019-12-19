@@ -54,20 +54,22 @@
          
          function init() {
              totalTime = 0;
-             sx2 = (canvas2.left + canvas2.right)/2;
-             sy2 = (canvas2.top + canvas2.bottom)/2;
+             sx2 = canvas2.offsetLeft + canvas2.width/2;
+             sy2 = canvas2.offsetTop + canvas2.height/2;
+             //alert(canvas2.left+":"+canvas2.right+":"+canvas2.left+":"+ canvas2.right);
          }
        
          window.onload = function() {
               canvas = document.getElementById("canvas");
-              canvas2 = document.getElementById("canvas");
+              canvas2 = document.getElementById("canvas2");
               if (canvas == null || canvas.getContext == null) return;
               ctx = canvas.getContext("2d");
 
-              sx2 = (canvas2.left + canvas2.right)/2;
-              sy2 = (canvas2.top + canvas2.bottom)/2;
+              sx2 = canvas2.offsetLeft + canvas2.width/2;
+              sy2 = canvas2.offsetTop + canvas2.height/2;
+              //alert(canvas2.offsetLeft+":"+canvas2.width+":"+canvas2.offsetTop+":"+ canvas2.height);
               var ctx2 = canvas2.getContext("2d");
-              drawText(ctx2, "O", sx2, sy2,
+              drawText(ctx2, " <- O ->", canvas2.width/2, canvas2.height/2,
                         "30px arial", "yellow", "center", "middle");
               
               spaceShip = new Image();
@@ -91,7 +93,7 @@
                    });
               }
               else {
-                  canvas2.addEventListener("mousemove", function (e) {
+                  canvas.addEventListener("mousemove", function (e) {
                       if ( sx < e.clientX ) sx += 3;
                       if ( sx > e.clientX ) sx -= 3;
                       if ( sy < e.clientY ) sy += 3;
